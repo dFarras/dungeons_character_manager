@@ -1,9 +1,25 @@
 from django.db import models
-from . import dtos
+from manager_core.dtos import WeaponType, DamageType
 
 
 class Weapon(models.Model):
     name = models.CharField(max_length=128)
+    weaponType = models.CharField(
+        max_length=5,
+        choices=[(tag, tag.value()) for tag in WeaponType]
+    )
+    price = models.PositiveIntegerField()
+    damage = models.ForeignKey(RollDice)
+    damageType = models.CharField(
+        max_length=11,
+        choices=[(tag, tag.value()) for tag in DamageType]
+    )
 
-    question_text = models.CharField(max_length=200)
-    pub_date = models.DateTimeField('date published')
+
+
+class RollDice(models.Model):
+    four = models.SmallIntegerField()
+    six = models.SmallIntegerField()
+    eight = models.SmallIntegerField()
+    twelve = models.SmallIntegerField()
+    twenty = models.SmallIntegerField()
