@@ -14,7 +14,8 @@ class Weapon(models.Model):
         max_length=11,
         choices=[(tag, tag.value()) for tag in DamageType]
     )
-
+    weight = models.SmallIntegerField()
+    properties = models.TextField()
 
 
 class RollDice(models.Model):
