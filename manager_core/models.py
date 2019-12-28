@@ -4,16 +4,16 @@ from manager_core.dtos import WeaponType, DamageType
 
 class Weapon(models.Model):
     name = models.CharField(max_length=128)
-    weaponType = models.CharField(
-        max_length=5,
-        choices=[(tag, tag.value()) for tag in WeaponType]
-    )
+    #weaponType = models.CharField(
+    #    max_length=5,
+    #    choices=[(tag, tag.value()) for tag in WeaponType]
+    #)
     price = models.PositiveIntegerField()
-    damage = models.ForeignKey(RollDice)
-    damageType = models.CharField(
-        max_length=11,
-        choices=[(tag, tag.value()) for tag in DamageType]
-    )
+    #damage = models.ForeignKey(RollDice)
+    #damageType = models.CharField(
+    #    max_length=11,
+    #    choices=[(tag, tag.value()) for tag in DamageType]
+    #)
     weight = models.SmallIntegerField()
     properties = models.TextField()
 

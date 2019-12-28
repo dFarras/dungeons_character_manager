@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .forms import WeaponForm
+from manager_core.forms.weaponForm import WeaponForm
 
 
 def index(request):
@@ -8,6 +8,7 @@ def index(request):
 
 
 def weapons(request):
+    form = WeaponForm()
     if request.method == 'POST':
         form = WeaponForm(request.POST)
         if form.is_valid():
@@ -15,4 +16,4 @@ def weapons(request):
             weapon.save()
     else:
         form = WeaponForm()
-    return render(request, 'manager_core/templates/WeaponTemplate.html', {'form': form})
+        return render(request, 'weaponTemplate.html', {'form': form})
