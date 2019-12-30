@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Race_details</title>
+</head>
+<body>
+{% if race %}
+    <h1>{{ race.name }}</h1>
+    <li><b>Size:</b> {{ race.size }}</li>
+    <li><b>Speed:</b> {{ race.speed }}</li>
+    <li><b>Subraces:</b></li>
+    {% for subrace in race.sub_races %}
+        <li><a href="/race/{{ race.name }}/">{{ subrace.name }}</a></li>
+    {% endfor %}
+{% else %}
+    <p>No race available.</p>
+{% endif %}
+</body>
+</html>
