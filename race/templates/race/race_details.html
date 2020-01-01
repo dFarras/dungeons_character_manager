@@ -10,8 +10,8 @@
     <li><b>Size:</b> {{ race.size }}</li>
     <li><b>Speed:</b> {{ race.speed }}</li>
     <li><b>Subraces:</b></li>
-    {% for subrace in race.sub_races %}
-        <li><a href="/race/{{ race.name }}/">{{ subrace.name }}</a></li>
+    {% for subrace in race.subrace_set.all %}
+        <li><a href="/race/{{ race.name }}/{{ subrace.name }}/">{{ subrace.name }}</a></li>
     {% endfor %}
 {% else %}
     <p>No race available.</p>

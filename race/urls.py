@@ -3,8 +3,10 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    # ex: /polls/
+    # ex: /race/
     path('race/', views.race, name='race'),
-    # ex: /polls/5/
-    path('race/<str:race_name>/', views.detail, name='detail'),
+    # ex: /race/race.name/
+    path('race/<str:race_name>/', views.race_detail, name='race_details'),
+    # ex: /race/race.name/subrace.name/
+    path('race/<str:race_name>/<str:subrace_name>/', views.subrace_detail, name='subrace_detail'),
 ]

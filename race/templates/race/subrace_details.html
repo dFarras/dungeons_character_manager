@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Subrace_details</title>
+</head>
+<body>
+{% if subrace %}
+    <h1>{{ subrace.name }}</h1>
+    <h3>{{ subrace.race.name }}</h3>
+{% else %}
+    <p>No subrace available.</p>
+{% endif %}
+</body>
+</html>
