@@ -6,8 +6,14 @@
 </head>
 <body>
 {% if subrace %}
-    <h1>{{ subrace.name }}</h1>
-    <h3>{{ subrace.race.name }}</h3>
+    <h1>{{ subrace.race.name }}</h1>
+    <h3>{{ subrace.name }}</h3>
+    <li><b>Size:</b> {{ subrace.race.size }}</li>
+    <li><b>Speed:</b> {{ subrace.race.speed }}</li>
+    <li></li>
+    {% for stat, value in stat_impr.items %}
+        <li>{{ stat }}: +{{ value }}</li>
+    {% endfor %}
 {% else %}
     <p>No subrace available.</p>
 {% endif %}

@@ -9,6 +9,11 @@
     <h1>{{ race.name }}</h1>
     <li><b>Size:</b> {{ race.size }}</li>
     <li><b>Speed:</b> {{ race.speed }}</li>
+    <li></li>
+    {% for stat, value in race_imp.items %}
+        <li>{{ stat }}: +{{ value }}</li>
+    {% endfor %}
+    <li></li>
     <li><b>Subraces:</b></li>
     {% for subrace in race.subrace_set.all %}
         <li><a href="/race/{{ race.name }}/{{ subrace.name }}/">{{ subrace.name }}</a></li>

@@ -6,7 +6,17 @@ class Race(models.Model):
     name = models.CharField(max_length=32, default='default')
     size = models.CharField(max_length=20)
     speed = models.IntegerField()
-    #alignment = models.CharField(max_length=20)
+
+    def char_imp(self):
+        d = {'STR': 0,
+             'DEX': 0,
+             'CON': 0,
+             'INT': 0,
+             'WIS': 0,
+             'CHA': 0}
+        for i in self.charimprovements_set.all():
+            d[i.stat] += 1
+        return d
 
     def __str__(self):
         return self.name
@@ -22,10 +32,20 @@ class Race(models.Model):
     #        created.save()
 
 
-
 class SubRace(models.Model):
     name = models.CharField(max_length=32, default='default')
     race = models.ForeignKey(Race, on_delete=models.CASCADE, blank=True, null=True)
+
+    def char_imp(self):
+        d = {'STR': 0,
+             'DEX': 0,
+             'CON': 0,
+             'INT': 0,
+             'WIS': 0,
+             'CHA': 0}
+        for i in self.charimprovements_set.all():
+            d[i.stat] += 1
+        return d
 
     def __str__(self):
         return self.name
