@@ -15,7 +15,7 @@ class Race(models.Model):
              'WIS': 0,
              'CHA': 0}
         for i in self.charimprovements_set.all():
-            d[i.stat] += 1
+            d[i.stat] += int(i.bonus)
         return d
 
     def __str__(self):
